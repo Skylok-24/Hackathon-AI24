@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Twintelli Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1100px;
+            width: 100%;
+            background-color: #ffffff;
+        }
+
+        .illustration-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .login-section {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            color: #1a1b50;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1b50;
+            margin-left: 10px;
+            font-weight:500;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a1b50;
+            margin-bottom: 15px;
+            font-weight:500;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            color:#0E1039;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #1a1b50;
+            outline: none;
+        }
+
+        .form-input.error {
+            border-color: #dc3545;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .password-field {
+            position: relative;
+        }
+
+        .hide-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            margin: 20px 0 30px;
+        }
+
+        .terms-checkbox input {
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+
+        .terms-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .terms-link {
+            color: #1a1b50;
+            text-decoration: none;
+        }
+
+        .login-btn {
+            background-color:#0E1039;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-btn:hover {
+            background-color: #843091;
+        }
+
+        .member-text {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .login-link {
+            color: #1a1b50;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media screen and (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                max-width: 500px;
+            }
+            
+            .illustration-section {
+                padding: 30px;
+            }
+            
+            .login-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="illustration-section">
+            <img src= "images/cc.jpg" alt="Authentication illustration" class="illustration">
+        </div>
+        <div class="login-section">
+            <div class="logo">
+                <img src="Vector.png" alt="">
+                <span class="logo-text">Twintelli</span>
+            </div>
+            <h1 class="title">Welcome to PhnesTwintelli</h1>
+            <p class="subtitle">We craft experiences that resonate, designs that captivate, and solutions that leave a lasting impression. Welcome to a world where your vision takes shape.</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="">
+                    <p id="emailError" class="error-message">Erreur: Veuillez entrer un email valide.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" class="form-input" placeholder="">
+                        <button type="button" class="hide-button" id="togglePassword">Hide</button>
+                    </div>
+                    <p id="passwordError" class="error-message">Erreur: Le mot de passe doit contenir au moins 8 caractères.</p>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms">
+                    <label for="terms" class="terms-text">I agree to the <a href="#" class="terms-link">Terms of Service</a> and acknowledge you've read our <a href="#" class="terms-link">Privacy Policy</a>.</label>
+                    <p id="termsError" class="error-message" style="margin-left: 20px;">Erreur: Vous devez accepter les conditions.</p>
+                </div>
+                
+                <button type="submit" class="login-btn">Login account</button>
+                
+                <p class="member-text">Already a member? <a href="#" class="login-link">Log in</a></p>
+            </form>
+    </div>
+    <script>
+
+
+
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const termsCheckbox = document.getElementById('terms');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const termsError = document.getElementById('termsError');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+
+    togglePasswordBtn.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordBtn.textContent = 'Show';
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordBtn.textContent = 'Hide';
+        }
+    });
+  
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    emailInput.addEventListener('input', function() {
+        if (!isValidEmail(this.value) && this.value.length > 0) {
+            emailInput.classList.add('error');
+            emailError.style.display = 'block';
+        } else {
+            emailInput.classList.remove('error');
+            emailError.style.display = 'none';
+        }
+    });
+
+    passwordInput.addEventListener('input', function() {
+        if (this.value.length < 8 && this.value.length > 0) {
+            passwordInput.classList.add('error');
+            passwordError.style.display = 'block';
+        } else {
+            passwordInput.classList.remove('error');
+            passwordError.style.display = 'none';
+        }
+    });
+ 
+    termsCheckbox.addEventListener('change', function() {
+        if (!this.checked) {
+            termsError.style.display = 'block';
+        } else {
+            termsError.style.display = 'none';
+        }
+    });
+  
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let hasErrors = false;
+        
+    l
+        if (!isValidEmail(emailInput.value)) {
+            emailInput.classList.add('error');
+            emailError.style.display = 'block';
+            hasErrors = true;
+        }
+        
+       
+        if (passwordInput.value.length < 8) {
+            passwordInput.classList.add('error');
+            passwordError.style.display = 'block';
+            hasErrors = true;
+        }
+        
+      
+        if (!termsCheckbox.checked) {
+            termsError.style.display = 'block';
+            hasErrors = true;
+        }
+        
+        
+        if (!hasErrors) {
+            alert('Formulaire envoyé avec succès!');
+          
+        }
+    });
+
+
+
+</script>
+</body>
+</html>
