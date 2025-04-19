@@ -1,3 +1,12 @@
+<?php
+
+require_once __DIR__ . '/template/header.php';
+require_once __DIR__ . '/includes/login.php';
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -214,25 +223,34 @@
         </div>
         <div class="login-section">
             <div class="logo">
-                <img src="Vector.png" alt="">
+                <img src="/images/Vector.png" alt="">
                 <span class="logo-text">Twintelli</span>
             </div>
             <h1 class="title">Welcome to PhnesTwintelli</h1>
             <p class="subtitle">We craft experiences that resonate, designs that captivate, and solutions that leave a lasting impression. Welcome to a world where your vision takes shape.</p>
-            <form id="loginForm">
+            <form id="loginForm" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input type="email" id="email" class="form-input" placeholder="">
+                    <input  id="email" class="form-input" name="email" placeholder="" value="<?= $email ?>">
                     <p id="emailError" class="error-message">Erreur: Veuillez entrer un email valide.</p>
+                </div>
+                <div class="error-massge" style="color: red;
+    font-size: 12px;
+    margin-top: 5px;">
+                    <?= $errors['email'] ?>
                 </div>
                 
                 <div class="form-group">
                     <label class="form-label">Password</label>
                     <div class="password-field">
-                        <input type="password" id="password" class="form-input" placeholder="">
+                        <input id="password" name="pass" class="form-input" placeholder="" value="<?= $password ?>">
                         <button type="button" class="hide-button" id="togglePassword">Hide</button>
                     </div>
-                    <p id="passwordError" class="error-message">Erreur: Le mot de passe doit contenir au moins 8 caractères.</p>
+                </div>
+                <div class="error-massge" style="color: red;
+    font-size: 12px;
+    margin-top: 5px;">
+                    <?= $errors['password'] ?>
                 </div>
                 
                 <div class="terms-checkbox">
@@ -243,20 +261,15 @@
                 
                 <button type="submit" class="login-btn">Login account</button>
                 
-                <p class="member-text">Already a member? <a href="#" class="login-link">Log in</a></p>
+                <p class="member-text">Already a member? <a href="register.php" class="login-link">Sign up</a></p>
             </form>
     </div>
     <script>
 
 
 
-    const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email');
+
     const passwordInput = document.getElementById('password');
-    const termsCheckbox = document.getElementById('terms');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const termsError = document.getElementById('termsError');
     const togglePasswordBtn = document.getElementById('togglePassword');
 
     togglePasswordBtn.addEventListener('click', function() {
@@ -268,72 +281,12 @@
             togglePasswordBtn.textContent = 'Hide';
         }
     });
-  
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+
+    {
+        "status": "success",
+        "image_url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-44Ky6HYYtn5UiAvngid4Bp04/o-poulet/img-cKerISY2fLoxr8X8rYkC2vuY.png?st=2025-04-15T13%3A32%3A30Z&se=2025-04-15T15%3A32%3A30Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=475fd488-6c59-44a5-9aa9-31c4db451bea&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-14T23%3A41%3A01Z&ske=2025-04-15T23%3A41%3A01Z&sks=b&skv=2024-08-04&sig=kbXRjcO7MpU%2Bsw/24XdzGdX8qz8NWdPyFY%2BF/3B9%2BpY%3D",
+        "timestamp": "2025-04-15T15:32:30.281252"
     }
-    
-    emailInput.addEventListener('input', function() {
-        if (!isValidEmail(this.value) && this.value.length > 0) {
-            emailInput.classList.add('error');
-            emailError.style.display = 'block';
-        } else {
-            emailInput.classList.remove('error');
-            emailError.style.display = 'none';
-        }
-    });
-
-    passwordInput.addEventListener('input', function() {
-        if (this.value.length < 8 && this.value.length > 0) {
-            passwordInput.classList.add('error');
-            passwordError.style.display = 'block';
-        } else {
-            passwordInput.classList.remove('error');
-            passwordError.style.display = 'none';
-        }
-    });
- 
-    termsCheckbox.addEventListener('change', function() {
-        if (!this.checked) {
-            termsError.style.display = 'block';
-        } else {
-            termsError.style.display = 'none';
-        }
-    });
-  
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        let hasErrors = false;
-        
-    l
-        if (!isValidEmail(emailInput.value)) {
-            emailInput.classList.add('error');
-            emailError.style.display = 'block';
-            hasErrors = true;
-        }
-        
-       
-        if (passwordInput.value.length < 8) {
-            passwordInput.classList.add('error');
-            passwordError.style.display = 'block';
-            hasErrors = true;
-        }
-        
-      
-        if (!termsCheckbox.checked) {
-            termsError.style.display = 'block';
-            hasErrors = true;
-        }
-        
-        
-        if (!hasErrors) {
-            alert('Formulaire envoyé avec succès!');
-          
-        }
-    });
-
-
 
 </script>
 </body>

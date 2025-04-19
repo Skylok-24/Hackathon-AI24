@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once __DIR__.'/template/header.php';
+require_once __DIR__.'/includes/token.php';
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,74 +178,24 @@
         </div>
         <div class="auth-section">
             <div class="logo">
-                <img src="Vector.png" alt="">
+                <img src="/images/Vector.png" alt="">
                 <span class="logo-text">Twintelli</span>
             </div>
             <h1 class="title">Send to code sTwintelli</h1>
             <p class="subtitle">We craft experiences that resonate, designs that captivate, and solutions that leave a lasting impression. Welcome to a world where your vision takes shape.</p>
-            <form id="authForm">
+            <form id="authForm" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <div class="form-group">
                     <label class="form-label">Bearer Token</label>
-                    <input type="password" id="bearerToken" class="form-input" placeholder="">
-                    <p id="tokenError" class="error-message">Erreur: Le token ne peut pas être vide.</p>
+                    <input name="token" type="text" id="bearerToken" class="form-input" placeholder="">
+                    <div class="error-massge" style="color: red;
+    font-size: 12px;
+    margin-top: 5px;">
+                        <?= $errors['token'] ? $errors['token'] : "" ?>
+                    </div>
                 </div>
                 <button type="submit" class="continue-btn">Continuer</button>
             </form>
         </div>
     </div>
-    <script>
-        
-         const authForm = document.getElementById('authForm');
-         const tokenInput = document.getElementById('bearerToken');
-         const tokenError = document.getElementById('tokenError');
- 
-      
-         tokenInput.addEventListener('input', function() {
-             validateToken();
-         });
- 
-       
-         tokenInput.addEventListener('blur', function() {
-             validateToken();
-         });
- 
-       
-         function validateToken() {
-             const token = tokenInput.value.trim();
-             
-             if (token === '') {
-                 tokenInput.classList.add('error');
-                 tokenError.textContent = 'Erreur: Le token ne peut pas être vide.';
-                 tokenError.style.display = 'block';
-                 return false;
-             } else if (token.length < 10) {
-                 tokenInput.classList.add('error');
-                 tokenError.textContent = 'Erreur: Le token doit contenir au moins 10 caractères.';
-                 tokenError.style.display = 'block';
-                 return false;
-             } else if (!/^[A-Za-z0-9_-]+$/.test(token)) {
-                 tokenInput.classList.add('error');
-                 tokenError.textContent = 'Erreur: Le token contient des caractères non valides.';
-                 tokenError.style.display = 'block';
-                 return false;
-             } else {
-                 tokenInput.classList.remove('error');
-                 tokenError.style.display = 'none';
-                 return true;
-             }
-         }
-
- 
-         authForm.addEventListener('submit', function(event) {
-             event.preventDefault();
-             
-             // Validate the token before submission
-             if (validateToken()) {
-                 // If valid, you could submit the form or make an API call here
-                 alert('Token valide! Formulaire envoyé avec succès.');
-                 // For demonstration, we'll just show an alert
-             }
-         });
-    </script>
 </body>
 </html>

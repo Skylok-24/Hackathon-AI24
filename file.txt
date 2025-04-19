@@ -1,0 +1,116 @@
+Array
+(
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [entities] => Array
+                        (
+                            [urls] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [start] => 52
+                                            [end] => 75
+                                            [url] => https://t.co/H96YB3yUxj
+                                            [expanded_url] => https://x.com/lokman_louka/status/1427894873852633093/photo/1
+                                            [display_url] => pic.x.com/H96YB3yUxj
+                                            [media_key] => 3_1427894871495528448
+                                        )
+
+                                )
+
+                            [hashtags] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [start] => 0
+                                            [end] => 14
+                                            [tag] => NewProfilePic
+                                        )
+
+                                )
+
+                        )
+
+                    [lang] => ar
+                    [text] => #NewProfilePic سبحان الله و بحمده سبحان الله العضيم https://t.co/H96YB3yUxj
+                    [id] => 1427894873852633093
+                    [public_metrics] => Array
+                        (
+                            [retweet_count] => 0
+                            [reply_count] => 0
+                            [like_count] => 2
+                            [quote_count] => 0
+                            [bookmark_count] => 0
+                            [impression_count] => 0
+                        )
+
+                    [author_id] => 1194963487308570628
+                    [possibly_sensitive] =>
+                    [reply_settings] => everyone
+                    [attachments] => Array
+                        (
+                            [media_keys] => Array
+                                (
+                                    [0] => 3_1427894871495528448
+                                )
+
+                        )
+
+                    [conversation_id] => 1427894873852633093
+                    [created_at] => 2021-08-18T07:27:21.000Z
+                    [edit_history_tweet_ids] => Array
+                        (
+                            [0] => 1427894873852633093
+                        )
+
+                )
+
+        )
+
+    [includes] => Array
+        (
+            [media] => Array
+                (
+                    [0] => Array
+                        (
+                            [width] => 643
+                            [height] => 643
+                            [url] => https://pbs.twimg.com/media/E9Dm0gAX0AA14nX.jpg
+                            [type] => photo
+                            [media_key] => 3_1427894871495528448
+                        )
+
+                )
+
+            [users] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 1194963487308570628
+                            [name] => Lokman louka
+                            [protected] =>
+                            [username] => lokman_louka
+                            [created_at] => 2019-11-14T13:01:59.000Z
+                            [verified] =>
+                            [profile_image_url] => https://pbs.twimg.com/profile_images/1427894689798184961/DyPKzb89_normal.jpg
+                            [description] =>
+                            [public_metrics] => Array
+                                (
+                                    [followers_count] => 0
+                                    [following_count] => 83
+                                    [tweet_count] => 52
+                                    [listed_count] => 0
+                                    [like_count] => 44
+                                    [media_count] => 4
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+

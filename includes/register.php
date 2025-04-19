@@ -47,34 +47,40 @@ function isValidPassword($password) {
 
 $errorName = $errorEmail = $errorPassword = '';
 $email = $name = $password  = '';
-$errors = [];
+$errors = [
+    'name' => '',
+    'email' => '',
+    'password' => '',
+    'user' => ''
+];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['pass'];
-    if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
+    if (!empty($name) && !empty($email) && !empty($password)) {
         $name = filterString($name);
         $email = filterEmail($email);
         if (!$name) {
-            $errorName = "Your Name is Invalid";
+            $errors['name'] = "Your Name is Invalid";
         }
         if (!$email) {
-            $errorEmail = "Your Email is Invalid";
+            $errors['email'] = "Your Email is Invalid";
         }
         if (!isValidPassword($password)) {
-            $errorPassword = "The password does not meet the requirements.";
+            $errors['password'] = "The password does not meet the requirements.";
         }
     } else {
-        if (empty($_POST['name'])) array_push($errors, "Your Name is required");
-        if (empty($_POST['email'])) array_push($errors, "Your Email is required");
-        if (empty($_POST['pass'])) array_push($errors, "Your Password is required");
+        if (empty($_POST['name'])) $errors['name'] = 'Your Name is required';
+        if (empty($_POST['email'])) $errors['email'] = 'Your Email is required';
+        if (empty($_POST['pass'])) $errors['password'] = 'Your Password is required';
     }
 
-    if (!$errorPassword && !$errorEmail && !$errorName) {
+
+    if (!$errors['name'] && !$errors['email']  && !$errors['password']) {
         $query = $pdo->prepare("SELECT id,email FROM user WHERE email=?");
         $query->execute([$email]);
         if ($query->fetch()) {
-            $errorUser = "User Already Exists";
+            $errors['user'] = "User Already Exists";
         } else {
             $password = password_hash($password, PASSWORD_DEFAULT);
             $query = $pdo->prepare("INSERT INTO user (email,name,password) VALUES (?,?,?)");
@@ -84,9 +90,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_id'] = $pdo->lastInsertId();
                 $_SESSION['user_name'] = $name;
                 $_SESSION['message'] = $name . " Welcome back .";
-                header("Location: /");
+                header("Location: /Hackathon/token.php");
             } else {
-                $errorUser = "regestred error";
+                $errors['user'] = 'regestred error';
             }
         }
     }

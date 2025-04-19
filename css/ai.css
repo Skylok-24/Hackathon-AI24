@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 80px;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #e2e8f0;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #0f172a;
+    background-color: #f1f5f9;
+}
+
+.nav-tab:hover {
+    background-color: #e2e8f0;
+}
+
+.nav-tab.active {
+    background-color: #7b7ff6;
+    color: white;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f8fafc;
+    border-radius: 20px;
+    padding: 8px 16px;
+    width: 250px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    margin-left: 8px;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.notification-icon {
+    cursor: pointer;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.role {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.greeting-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.greeting {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.hello {
+    color: #7b7ff6;
+}
+
+.greeting-subtitle {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.content-creation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.image-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upload-area {
+    height: 200px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+.ai-button {
+    align-self: flex-end;
+    background-color: #7b7ff6;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ai-button:hover {
+    background-color: #6366f1;
+}
+
+.text-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text-input textarea {
+    height: 200px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    padding: 15px;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.publish-button {
+    background-color: #00d26a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.publish-button:hover {
+    background-color: #00b85c;
+}
+
+.right-panel {
+    width: 40%;
+    max-width: 500px;
+}
+
+.chat-container {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(236, 246, 255, 0.8) 100%);
+    border-radius: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.incoming {
+    align-self: flex-start;
+    background-color: #f1f5f9;
+}
+
+.message.outgoing {
+    align-self: flex-end;
+    background-color: #7b7ff6;
+    color: white;
+}
+
+.message-input {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.message-input input {
+    flex: 1;
+    border: 1px solid #cbd5e1;
+    border-radius: 24px;
+    padding: 12px 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+.message-input button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #000000;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.message-input button:hover {
+    background-color: #1e293b;
+}
+
+/* Notification Popup Styles */
+.notification-popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transform: translateY(150%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.notification-popup.show {
+    transform: translateY(0);
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #7b7ff6;
+    color: white;
+    font-weight: 500;
+}
+
+.notification-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.notification-content {
+    padding: 16px;
+    font-size: 14px;
+}
